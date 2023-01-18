@@ -23,7 +23,7 @@ void test_checkEnemyHeals(void)
 
     /* act */
     //Die Funktion wird ausgeführt
-    result = calculateHeal(currentHealth, maxHealth);
+    result = doesHeal(currentHealth, maxHealth);
 
     /* assert */
     //Vergleichen
