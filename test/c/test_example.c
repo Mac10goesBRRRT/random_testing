@@ -1,4 +1,5 @@
 #ifdef TEST
+#include <stdbool.h>
 #include "unity.h"
 //in example.h wird die Funktion deklariert
 #include "example.h"
@@ -12,21 +13,21 @@ void tearDown(void)
 {
 }
 
-//Hier läuft der Test
-void test_runExampleTest(void)
+void test_checkEnemyHeals(void)
 {
     /* arrange */
     //Hier die Werte eingeben
-    int result;
-    int input = 1;
+    bool result;
+    int currentHealth = 10;
+    int maxHealth = 100;
 
     /* act */
     //Die Funktion wird ausgeführt
-    result = something(input);
+    result = calculateHeal(currentHealth, maxHealth);
 
     /* assert */
     //Vergleichen
-    TEST_ASSERT_EQUAL_INT(1, result);
+    TEST_ASSERT_TRUE(result);
 }
 
 #endif // TEST
