@@ -25,11 +25,16 @@ void test_checkEnemyHeals(void)
 
     /* act */
     //Die Funktion wird ausgeführt
+    randInt_ExpectAndReturn(10);
     result = doesHeal(currentHealth, maxHealth);
+    TEST_ASSERT_TRUE(result);
+    randInt_ExpectAndReturn(1);
+    result = doesHeal(currentHealth, maxHealth);
+    TEST_ASSERT_FALSE(result);
 
     /* assert */
     //Vergleichen
-    TEST_ASSERT_TRUE(result);
+    
 }
 
 void test_randReturns(void)
@@ -69,6 +74,18 @@ void test_roll_01(){
     result = randIntRange(1,20);
 
     TEST_ASSERT_EQUAL(expected, result);
+}
+
+void test_map10(){
+    int expected1 = 10, expected2 = 0, expected3 = 20;
+    int result;
+    
+    result = map(50, 0, 100, 0, 20);
+    TEST_ASSERT_EQUAL(expected1, result);
+    result = map(0, 0, 100, 0, 20);
+    TEST_ASSERT_EQUAL(expected2, result);
+    result = map(100, 0, 100, 0, 20);
+    TEST_ASSERT_EQUAL(expected3, result);
 }
 
 #endif // TEST
